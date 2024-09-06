@@ -3,7 +3,6 @@ import { handleError } from "./error.js";
 
 export function handleContactUpdate({
   contactList,
-  contacts,
   addContactBtn,
   contactForm,
   nameInput,
@@ -15,13 +14,15 @@ export function handleContactUpdate({
 }) {
   contactList.addEventListener("click", (e) => {
     e.preventDefault();
-    if (e.target.classList.contains("edit-btn")) {
+    if (e.target.classList.contains("btn__edit")) {
+      let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
       const contactId = e.target.parentElement.getAttribute("data-id");
       const contactToEdit = contacts.find(function (contact) {
         return contact.id === Number(contactId);
       });
       document.getElementById("name").value = contactToEdit.name;
       document.getElementById("phone").value = contactToEdit.phone;
+      document.getElementById("email").value = contactToEdit.email;
       addContactBtn.textContent = "Update Contact";
       const updateHandler = () => {
         const updatedName = document.getElementById("name").value.trim();

@@ -11,7 +11,6 @@ import {
   regexEmail,
 } from "./constants/constant.js";
 
-const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
 const contactList = document.getElementById("contactList");
 const filterInput = document.getElementById("filter");
 const clearFilterBtn = document.getElementById("clearFilterBtn");
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     termsInput,
     addContactBtn,
     contactList,
-    contacts,
     regexValidate,
     regexIncludeName,
     regexIncludePhone,
@@ -39,11 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   handleContactDelete({
     contactList,
-    contacts,
   });
   handleContactUpdate({
     contactList,
-    contacts,
     addContactBtn,
     contactForm,
     nameInput,
@@ -56,13 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
   handleFilterInput({
     filterInput,
     contactList,
-    contacts,
   });
   handleCleanerFilterButton({
     clearFilterBtn,
     filterInput,
     contactList,
-    contacts,
   });
-  renderContacts(contactList, contacts);
+  renderContacts(contactList);
 });

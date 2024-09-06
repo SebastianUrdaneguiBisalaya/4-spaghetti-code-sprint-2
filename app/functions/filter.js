@@ -2,17 +2,18 @@ import { renderContacts } from "./renderItem.js";
 import { sanitize } from "./sanitizing.js";
 import { regexValidate } from "../constants/constant.js";
 
-export function handleFilterInput({ filterInput, contactList, contacts }) {
+export function handleFilterInput({ filterInput, contactList }) {
   filterInput.addEventListener("input", () => {
+    let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
     const filterValue = String(
       sanitize(filterInput.value, regexValidate)
     ).toLowerCase();
-    const transformContacts = transformDataToLowerCase(contacts);
-    const filterData = filterDataInput({
-      data: transformContacts,
+    contacts = transformDataToLowerCase(contacts);
+    contacts = filterDataInput({
+      data: contacts,
       target: filterValue,
     });
-    renderContacts(contactList, filterData);
+    renderContacts(contactList, contacts);
   });
 }
 

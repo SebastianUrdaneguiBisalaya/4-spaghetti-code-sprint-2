@@ -18,7 +18,7 @@ h1 {
     color: #333;
 }
 
-.contact-form {
+.contact__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,11 +86,11 @@ li button:hover {
     background-color: #c82333;
 }
 
-li button.edit-btn {
+li button.btn__edit {
     background-color: #ffc107;
 }
 
-li button.edit-btn:hover {
+li button.btn__edit:hover {
     background-color: #e0a800;
 }
 
@@ -98,10 +98,6 @@ li button.edit-btn:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 0.7rem;
-}
-
-.filter-btn {
     margin-right: 0.7rem;
 }
 

@@ -4,8 +4,8 @@ export function handleCleanerFilterButton({
   clearFilterBtn,
   filterInput,
   contactList,
-  contacts,
 }) {
+  const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
   clearFilterBtn.addEventListener("click", () => {
     filterInput.value = "";
     contactList.innerHTML = "";

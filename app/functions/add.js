@@ -10,7 +10,6 @@ export function handleContactFormSubmit({
   termsInput,
   addContactBtn,
   contactList,
-  contacts,
   regexValidate,
   regexIncludeName,
   regexIncludePhone,
@@ -19,6 +18,7 @@ export function handleContactFormSubmit({
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
     if (addContactBtn.textContent.trim() === "Add Contact") {
+      const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
       const name = sanitize(nameInput.value, regexValidate).trim();
       const phone = sanitize(phoneInput.value, regexValidate).trim();
       const email = sanitize(emailInput.value, regexValidate).trim();
