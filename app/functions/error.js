@@ -5,5 +5,5 @@ export function handleError(element, message) {
   element.insertAdjacentElement("afterend", nameError);
   setTimeout(function () {
     nameError.remove();
-  }, 5500);
+  }, 1500);
 }

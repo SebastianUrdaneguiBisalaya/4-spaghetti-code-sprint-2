@@ -8,6 +8,7 @@ import {
   regexIncludeName,
   regexIncludePhone,
   regexValidate,
+  regexEmail,
 } from "./constants/constant.js";
 
 const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
@@ -18,6 +19,7 @@ const contactForm = document.getElementById("contacts");
 const addContactBtn = document.getElementById("addContactBtn");
 const nameInput = document.getElementById("name");
 const phoneInput = document.getElementById("phone");
+const emailInput = document.getElementById("email");
 const termsInput = document.getElementById("terms");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm,
     nameInput,
     phoneInput,
+    emailInput,
     termsInput,
     addContactBtn,
     contactList,
@@ -32,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     regexValidate,
     regexIncludeName,
     regexIncludePhone,
+    regexEmail,
   });
   handleContactDelete({
     contactList,
@@ -44,11 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm,
     nameInput,
     phoneInput,
+    emailInput,
+    regexIncludeName,
+    regexIncludePhone,
+    regexEmail,
   });
   handleFilterInput({
     filterInput,
     contactList,
+    contacts,
   });
-  handleCleanerFilterButton({ clearFilterBtn, filterInput, contactList });
+  handleCleanerFilterButton({
+    clearFilterBtn,
+    filterInput,
+    contactList,
+    contacts,
+  });
   renderContacts(contactList, contacts);
 });

@@ -4,7 +4,7 @@ export function renderContacts(contactList, contacts) {
     const li = document.createElement("li");
     li.classList.add("contact-item");
     li.setAttribute("data-id", contact.id);
-    li.innerHTML = `<strong>${contact.name}</strong> ${contact.phone} <button class="edit-btn">Edit</button> <button class="delete-btn">Delete</button>`;
+    li.innerHTML = `<strong>${contact.name}</strong> <span>${contact.phone}</span> <span>${contact.email}</span> <button class="edit-btn">Edit</button> <button class="delete-btn">Delete</button>`;
     contactList.appendChild(li);
   });
 }
